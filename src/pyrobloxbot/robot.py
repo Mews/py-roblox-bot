@@ -164,7 +164,7 @@ def ui_click():
     dinput.press("enter")
 
 @require_focus
-def equip_slot(slot):
+def equip_slot(slot:int):
     if slot < 0 or slot > 9:
         raise InvalidSlotNumber("Slots should be between 0 and 9")
 
