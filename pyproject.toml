@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyrobloxbot"
+version = "1.0.0"
+authors = [
+  { name="Mews", email="tiraraspas@gmail.com" },
+]
+description = "A python library to control the roblox character through keyboard inputs"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: Microsoft :: Windows",
+]
+keywords = ["roblox", "bot", "keyboard"]
+
+[project.urls]
+Homepage = "https://github.com/Mews/py-roblox-bot"
+Issues = "https://github.com/Mews/py-roblox-bot/issues"
