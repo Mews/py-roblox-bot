@@ -41,57 +41,57 @@ def require_focus(fn):
         return fn
 
 @require_focus
-def keyboard_action(action):
+def keyboard_action(action:float):
     dinput.press(action)
 
 @require_focus
-def hold_keyboard_action(action, duration):
+def hold_keyboard_action(action:str, duration:float):
     dinput.keyDown(action)
     wait(duration)
     dinput.keyUp(action)
 
 @require_focus
-def walk_forward(duration):
+def walk_forward(duration:float):
     dinput.keyDown("w")
     wait(duration)
     dinput.keyUp("w")
 
 @require_focus
-def walk_left(duration):
+def walk_left(duration:float):
     dinput.keyDown("a")
     wait(duration)
     dinput.keyUp("a")
 
 @require_focus
-def walk_right(duration):
+def walk_right(duration:float):
     dinput.keyDown("d")
     wait(duration)
     dinput.keyUp("d")
 
 @require_focus
-def walk_back(duration):
+def walk_back(duration:float):
     dinput.keyDown("s")
     wait(duration)
     dinput.keyUp("s")
 
 @require_focus
-def jump(number_of_jumps=1, delay=0):
+def jump(number_of_jumps:int=1, delay:float=0):
     for i in range(number_of_jumps):
         dinput.press("space")
         wait(delay)
 
 @require_focus
-def jump_continuous(duration):
+def jump_continuous(duration:float):
     dinput.keyDown("space")
     wait(duration)
     dinput.keyUp("space")
 
 @require_focus
-def reset_player(interval=0.5):
+def reset_player(interval:float=0.5):
     dinput.press(("esc", "r", "enter"), interval=interval)
 
 @require_focus
-def leave_game(interval=0.5):
+def leave_game(interval:float=0.5):
     dinput.press(("esc", "l", "enter"), interval=interval)
 
 @require_focus
@@ -99,7 +99,7 @@ def toggle_shift_lock():
     dinput.press("shift")
 
 @require_focus
-def chat(message):
+def chat(message:str):
     #Open chat
     dinput.keyDown("shift")
     dinput.keyDown("7")
