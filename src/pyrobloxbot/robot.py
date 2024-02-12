@@ -9,7 +9,10 @@ UI_NAV_ENABLED = False
 class NoRobloxWindowException(Exception):
     pass
 
-class InvalidSlotNumber(Exception):
+class InvalidSlotNumberException(Exception):
+    pass
+
+class InvalidWalkDirectionException(Exception):
     pass
 
 def require_focus(fn):
@@ -49,6 +52,34 @@ def hold_keyboard_action(action:str, duration:float):
     dinput.keyDown(action)
     wait(duration)
     dinput.keyUp(action)
+
+def walk(direction:str, duration:float):
+    direction = direction.lower().strip()
+
+    forwardDirections = ["f", "fw", "forward", "forwards"]
+    leftDirections = ["l", "left"]
+    rightDirections = ["r", "right"]
+    backDirections = ["b", "back", "backward", "backwards"]
+
+    if direction in forwardDirections:
+        walk_forward(duration)
+    
+    elif direction in leftDirections:
+        walk_left(duration)
+    
+    elif direction in rightDirections:
+        walk_right(duration)
+    
+    elif direction in backDirections:
+        walk_back(duration)
+    
+    else:
+        excTxt = "Direction must be one of these: "
+        for d in forwardDirections: excTxt += d + " "
+        for d in leftDirections: excTxt += d + " "
+        for d in rightDirections: excTxt += d + " "
+        for d in backDirections: excTxt += d + " "
+        raise InvalidWalkDirectionException(excTxt)
 
 @require_focus
 def walk_forward(duration:float):
@@ -166,6 +197,6 @@ def ui_click():
 @require_focus
 def equip_slot(slot:int):
     if slot < 0 or slot > 9:
-        raise InvalidSlotNumber("Slots should be between 0 and 9")
+        raise InvalidSlotNumberException("Slots should be between 0 and 9")
 
     dinput.press(str(slot))
