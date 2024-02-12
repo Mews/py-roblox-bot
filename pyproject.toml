@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling", "pydirectinput", "pygetwindow", "pyperclip", "pywin32"]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
