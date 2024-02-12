@@ -9,6 +9,9 @@ UI_NAV_ENABLED = False
 class NoRobloxWindowException(Exception):
     pass
 
+class InvalidSlotNumber(Exception):
+    pass
+
 def require_focus(fn):
     #Fast check to see if roblox window is already focused
     if GetWindowText(GetForegroundWindow()) == "Roblox":
@@ -159,3 +162,10 @@ def ui_click():
         toggle_ui_navigation()
 
     dinput.press("enter")
+
+@require_focus
+def equip_slot(slot):
+    if slot < 0 or slot > 9:
+        raise InvalidSlotNumber("Slots should be between 0 and 9")
+
+    dinput.press(str(slot))
