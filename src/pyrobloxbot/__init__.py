@@ -3,7 +3,7 @@ from time import sleep as wait
 from pygetwindow import getWindowsWithTitle, getActiveWindow
 from win32gui import GetWindowText, GetForegroundWindow
 import pyperclip as pyclip
-from exceptions import *
+from .exceptions import *
 
 UI_NAV_ENABLED = False
 
