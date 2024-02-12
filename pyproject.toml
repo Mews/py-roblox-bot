@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyrobloxbot"
-version = "1.0.2"
+version = "1.0.4"
 authors = [
   { name="Mews", email="tiraraspas@gmail.com" },
 ]
@@ -17,10 +17,10 @@ classifiers = [
     "Operating System :: Microsoft :: Windows",
 ]
 dependencies = [
-  "pydirectinput==1.0.4",
-  "pygetwindow==0.0.9",
-  "pyperclip==1.8.2",
-  "pywin32==306",
+  "pydirectinput",
+  "pygetwindow",
+  "pyperclip",
+  "pywin32",
 ]
 keywords = ["roblox", "bot", "keyboard"]
 
