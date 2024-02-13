@@ -1,4 +1,3 @@
 PyDirectInput
 PyGetWindow
 pyperclip
-pypiwin32
