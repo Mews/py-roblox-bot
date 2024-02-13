@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyrobloxbot package &mdash; pyrobloxbot 1.0.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d55fa986"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyrobloxbot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pyrobloxbot package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyrobloxbot.exceptions">pyrobloxbot.exceptions module</a><ul>
+<li><a class="reference internal" href="#pyrobloxbot.exceptions.InvalidSlotNumberException"><code class="docutils literal notranslate"><span class="pre">InvalidSlotNumberException</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.exceptions.InvalidWalkDirectionException"><code class="docutils literal notranslate"><span class="pre">InvalidWalkDirectionException</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.exceptions.NoRobloxWindowException"><code class="docutils literal notranslate"><span class="pre">NoRobloxWindowException</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyrobloxbot.literals">pyrobloxbot.literals module</a><ul>
+<li><a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS"><code class="docutils literal notranslate"><span class="pre">KEYBOARD_KEYS</span></code></a><ul>
+<li><a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS.VALUES"><code class="docutils literal notranslate"><span class="pre">KEYBOARD_KEYS.VALUES</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyrobloxbot.literals.WALK_DIRECTIONS"><code class="docutils literal notranslate"><span class="pre">WALK_DIRECTIONS</span></code></a><ul>
+<li><a class="reference internal" href="#pyrobloxbot.literals.WALK_DIRECTIONS.VALUES"><code class="docutils literal notranslate"><span class="pre">WALK_DIRECTIONS.VALUES</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyrobloxbot">Module contents</a><ul>
+<li><a class="reference internal" href="#pyrobloxbot.chat"><code class="docutils literal notranslate"><span class="pre">chat()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.equip_slot"><code class="docutils literal notranslate"><span class="pre">equip_slot()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.hold_keyboard_action"><code class="docutils literal notranslate"><span class="pre">hold_keyboard_action()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.jump"><code class="docutils literal notranslate"><span class="pre">jump()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.jump_continuous"><code class="docutils literal notranslate"><span class="pre">jump_continuous()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.keyboard_action"><code class="docutils literal notranslate"><span class="pre">keyboard_action()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.leave_game"><code class="docutils literal notranslate"><span class="pre">leave_game()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.require_focus"><code class="docutils literal notranslate"><span class="pre">require_focus()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.reset_player"><code class="docutils literal notranslate"><span class="pre">reset_player()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.toggle_shift_lock"><code class="docutils literal notranslate"><span class="pre">toggle_shift_lock()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.toggle_ui_navigation"><code class="docutils literal notranslate"><span class="pre">toggle_ui_navigation()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.ui_click"><code class="docutils literal notranslate"><span class="pre">ui_click()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.ui_navigate_down"><code class="docutils literal notranslate"><span class="pre">ui_navigate_down()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.ui_navigate_left"><code class="docutils literal notranslate"><span class="pre">ui_navigate_left()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.ui_navigate_right"><code class="docutils literal notranslate"><span class="pre">ui_navigate_right()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.ui_navigate_up"><code class="docutils literal notranslate"><span class="pre">ui_navigate_up()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.walk"><code class="docutils literal notranslate"><span class="pre">walk()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.walk_back"><code class="docutils literal notranslate"><span class="pre">walk_back()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.walk_forward"><code class="docutils literal notranslate"><span class="pre">walk_forward()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.walk_left"><code class="docutils literal notranslate"><span class="pre">walk_left()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.walk_right"><code class="docutils literal notranslate"><span class="pre">walk_right()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyrobloxbot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pyrobloxbot package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyrobloxbot.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyrobloxbot-package">
+<h1>pyrobloxbot package<a class="headerlink" href="#pyrobloxbot-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pyrobloxbot.exceptions">
+<span id="pyrobloxbot-exceptions-module"></span><h2>pyrobloxbot.exceptions module<a class="headerlink" href="#module-pyrobloxbot.exceptions" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyrobloxbot.exceptions.InvalidSlotNumberException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrobloxbot.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidSlotNumberException</span></span><a class="headerlink" href="#pyrobloxbot.exceptions.InvalidSlotNumberException" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised by equip_slot when slot isn’t between 0 and 9</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyrobloxbot.exceptions.InvalidWalkDirectionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrobloxbot.exceptions.</span></span><span class="sig-name descname"><span class="pre">InvalidWalkDirectionException</span></span><a class="headerlink" href="#pyrobloxbot.exceptions.InvalidWalkDirectionException" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised by walk when given a direction that isn’t in literals.WALK_DIRECTIONS.VALUES</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyrobloxbot.exceptions.NoRobloxWindowException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrobloxbot.exceptions.</span></span><span class="sig-name descname"><span class="pre">NoRobloxWindowException</span></span><a class="headerlink" href="#pyrobloxbot.exceptions.NoRobloxWindowException" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when a function can’t find a roblox window to focus</p>
+</dd></dl>
+
+</section>
+<section id="module-pyrobloxbot.literals">
+<span id="pyrobloxbot-literals-module"></span><h2>pyrobloxbot.literals module<a class="headerlink" href="#module-pyrobloxbot.literals" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyrobloxbot.literals.KEYBOARD_KEYS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrobloxbot.literals.</span></span><span class="sig-name descname"><span class="pre">KEYBOARD_KEYS</span></span><a class="headerlink" href="#pyrobloxbot.literals.KEYBOARD_KEYS" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Valid strings to pass to keyboard_action and hold_keyboard_action</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrobloxbot.literals.KEYBOARD_KEYS.VALUES">
+<span class="sig-name descname"><span class="pre">VALUES</span></span><a class="headerlink" href="#pyrobloxbot.literals.KEYBOARD_KEYS.VALUES" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Literal</span></code>[’t’, ‘n’, ‘r’, ‘ ‘, ‘!’, ‘”’, ‘#’, ‘$’, ‘%’, ‘&amp;’, “’”, ‘(’, ‘)’, ‘*’, ‘+’, ‘,’, ‘-’, ‘.’, ‘/’, ‘0’, ‘1’, ‘2’, ‘3’, ‘4’, ‘5’, ‘6’, ‘7’, ‘8’, ‘9’, ‘:’, ‘;’, ‘&lt;’, ‘=’, ‘&gt;’, ‘?’, ‘&#64;’, ‘[’, ‘\’, ‘]’, ‘^’, ‘_’, ‘`’, ‘a’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’, ‘g’, ‘h’, ‘i’, ‘j’, ‘k’, ‘l’, ‘m’, ‘n’, ‘o’, ‘p’, ‘q’, ‘r’, ‘s’, ‘t’, ‘u’, ‘v’, ‘w’, ‘x’, ‘y’, ‘z’, ‘{’, ‘|’, ‘}’, ‘~’, ‘accept’, ‘add’, ‘alt’, ‘altleft’, ‘altright’, ‘apps’, ‘backspace’, ‘browserback’, ‘browserfavorites’, ‘browserforward’, ‘browserhome’, ‘browserrefresh’, ‘browsersearch’, ‘browserstop’, ‘capslock’, ‘clear’, ‘convert’, ‘ctrl’, ‘ctrlleft’, ‘ctrlright’, ‘decimal’, ‘del’, ‘delete’, ‘divide’, ‘down’, ‘end’, ‘enter’, ‘esc’, ‘escape’, ‘execute’, ‘f1’, ‘f10’, ‘f11’, ‘f12’, ‘f13’, ‘f14’, ‘f15’, ‘f16’, ‘f17’, ‘f18’, ‘f19’, ‘f2’, ‘f20’, ‘f21’, ‘f22’, ‘f23’, ‘f24’, ‘f3’, ‘f4’, ‘f5’, ‘f6’, ‘f7’, ‘f8’, ‘f9’, ‘final’, ‘fn’, ‘hanguel’, ‘hangul’, ‘hanja’, ‘help’, ‘home’, ‘insert’, ‘junja’, ‘kana’, ‘kanji’, ‘launchapp1’, ‘launchapp2’, ‘launchmail’, ‘launchmediaselect’, ‘left’, ‘modechange’, ‘multiply’, ‘nexttrack’, ‘nonconvert’, ‘num0’, ‘num1’, ‘num2’, ‘num3’, ‘num4’, ‘num5’, ‘num6’, ‘num7’, ‘num8’, ‘num9’, ‘numlock’, ‘pagedown’, ‘pageup’, ‘pause’, ‘pgdn’, ‘pgup’, ‘playpause’, ‘prevtrack’, ‘print’, ‘printscreen’, ‘prntscrn’, ‘prtsc’, ‘prtscr’, ‘return’, ‘right’, ‘scrolllock’, ‘select’, ‘separator’, ‘shift’, ‘shiftleft’, ‘shiftright’, ‘sleep’, ‘space’, ‘stop’, ‘subtract’, ‘tab’, ‘up’, ‘volumedown’, ‘volumemute’, ‘volumeup’, ‘win’, ‘winleft’, ‘winright’, ‘yen’, ‘command’, ‘option’, ‘optionleft’, ‘optionright’]</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyrobloxbot.literals.WALK_DIRECTIONS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrobloxbot.literals.</span></span><span class="sig-name descname"><span class="pre">WALK_DIRECTIONS</span></span><a class="headerlink" href="#pyrobloxbot.literals.WALK_DIRECTIONS" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Valid strings to pass to walk</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrobloxbot.literals.WALK_DIRECTIONS.VALUES">
+<span class="sig-name descname"><span class="pre">VALUES</span></span><a class="headerlink" href="#pyrobloxbot.literals.WALK_DIRECTIONS.VALUES" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Literal</span></code>[‘f’, ‘fw’, ‘forward’, ‘forwards’, ‘l’, ‘left’, ‘r’, ‘right’, ‘b’, ‘back’, ‘backward’, ‘backwards’]</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyrobloxbot">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyrobloxbot" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.chat">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">chat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.chat" title="Link to this definition"></a></dt>
+<dd><p>Sends a message in chat</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – The message to send</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.equip_slot">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">equip_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.equip_slot" title="Link to this definition"></a></dt>
+<dd><p>Equip a given item slot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>slot</strong> (<em>int</em>) – The item slot to equip</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyrobloxbot.exceptions.InvalidSlotNumberException" title="pyrobloxbot.exceptions.InvalidSlotNumberException"><strong>InvalidSlotNumberException</strong></a> – Raised when slot isn’t between 0 and 9</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.hold_keyboard_action">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">hold_keyboard_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.hold_keyboard_action" title="Link to this definition"></a></dt>
+<dd><p>Holds a keyboard key for a given time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>action</strong> (<a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS" title="pyrobloxbot.literals.KEYBOARD_KEYS"><em>KEYBOARD_KEYS</em></a>) – The key to be held</p></li>
+<li><p><strong>duration</strong> (<em>float</em>) – How long to hold for, in seconds</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.jump">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">jump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_jumps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.jump" title="Link to this definition"></a></dt>
+<dd><p>Jumps for a given number of times</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number_of_jumps</strong> (<em>int</em>) – How many times to jump, defaults to 1</p></li>
+<li><p><strong>delay</strong> (<em>float</em>) – How much time between jumps, in seconds, defaults to 0</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.jump_continuous">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">jump_continuous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.jump_continuous" title="Link to this definition"></a></dt>
+<dd><p>Holds jump for a given time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duration</strong> (<em>float</em>) – How long to hold jump for, in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.keyboard_action">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">keyboard_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.keyboard_action" title="Link to this definition"></a></dt>
+<dd><p>Presses a keyboard key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> (<a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS" title="pyrobloxbot.literals.KEYBOARD_KEYS"><em>KEYBOARD_KEYS</em></a>) – The key to be pressed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.leave_game">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">leave_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.leave_game" title="Link to this definition"></a></dt>
+<dd><p>Leaves the current game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interval</strong> (<em>float</em>) – How long between each keyboard input, in seconds, defaults to 0.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.require_focus">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">require_focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.require_focus" title="Link to this definition"></a></dt>
+<dd><p>A decorator that ensures the roblox window is in focus before running the decorated function. This is used by all pyrobloxbot functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyrobloxbot.exceptions.NoRobloxWindowException" title="pyrobloxbot.exceptions.NoRobloxWindowException"><strong>NoRobloxWindowException</strong></a> – Raised when can’t find a roblox window to focus</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.reset_player">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">reset_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.reset_player" title="Link to this definition"></a></dt>
+<dd><p>Resets player character</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interval</strong> (<em>float</em>) – How long between each keyboard input, in seconds, defaults to 0.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.toggle_shift_lock">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">toggle_shift_lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.toggle_shift_lock" title="Link to this definition"></a></dt>
+<dd><p>Toggles shift lock (Shift lock switch must be enabled in roblox settings)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.toggle_ui_navigation">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">toggle_ui_navigation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.toggle_ui_navigation" title="Link to this definition"></a></dt>
+<dd><p>Toggles ui navigation mode. This is called by all ui navigation functions if ui navigation mode is disabled</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.ui_click">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_click</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_click" title="Link to this definition"></a></dt>
+<dd><p>Click on currently selected ui element</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.ui_navigate_down">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_navigate_down</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_navigate_down" title="Link to this definition"></a></dt>
+<dd><p>Navigate down in ui elements</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.ui_navigate_left">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_navigate_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_navigate_left" title="Link to this definition"></a></dt>
+<dd><p>Navigate left in ui elements</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.ui_navigate_right">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_navigate_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_navigate_right" title="Link to this definition"></a></dt>
+<dd><p>Navigate right in ui elements</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.ui_navigate_up">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_navigate_up</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_navigate_up" title="Link to this definition"></a></dt>
+<dd><p>Navigate up in ui elements</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.walk">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">WALK_DIRECTIONS.VALUES</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.walk" title="Link to this definition"></a></dt>
+<dd><p>Walks in a direction for a given time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>direction</strong> (<a class="reference internal" href="#pyrobloxbot.literals.WALK_DIRECTIONS" title="pyrobloxbot.literals.WALK_DIRECTIONS"><em>WALK_DIRECTIONS</em></a>) – The direction to walk in</p></li>
+<li><p><strong>duration</strong> (<em>float</em>) – How long to walk for, in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyrobloxbot.exceptions.InvalidWalkDirectionException" title="pyrobloxbot.exceptions.InvalidWalkDirectionException"><strong>InvalidWalkDirectionException</strong></a> – Raised when given direction isn’t in literals.WALK_DIRECTIONS.VALUES</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.walk_back">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">walk_back</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.walk_back" title="Link to this definition"></a></dt>
+<dd><p>Walks back for a given time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duration</strong> (<em>float</em>) – How long to walk for, in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.walk_forward">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">walk_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.walk_forward" title="Link to this definition"></a></dt>
+<dd><p>Walks forward for a given time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duration</strong> (<em>float</em>) – How long to walk for, in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.walk_left">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">walk_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.walk_left" title="Link to this definition"></a></dt>
+<dd><p>Walks left for a given time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duration</strong> (<em>float</em>) – How long to walk for, in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.walk_right">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">walk_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.walk_right" title="Link to this definition"></a></dt>
+<dd><p>Walks right for a given time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>duration</strong> (<em>float</em>) – How long to walk for, in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Mews.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
