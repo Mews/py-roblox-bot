@@ -1,9 +1,11 @@
+from __future__ import annotations
 import pydirectinput as dinput
 from time import sleep as wait
 from pygetwindow import getWindowsWithTitle, getActiveWindow
 from win32gui import GetWindowText, GetForegroundWindow
 import pyperclip as pyclip
 from .exceptions import *
+from .literals import KEYBOARD_KEYS, WALK_DIRECTIONS
 
 UI_NAV_ENABLED = False
 
@@ -36,7 +38,7 @@ def require_focus(fn):
         return fn
 
 @require_focus
-def keyboard_action(action:str):
+def keyboard_action(action:KEYBOARD_KEYS.VALUES):
     dinput.press(action)
 
 @require_focus
@@ -45,7 +47,7 @@ def hold_keyboard_action(action:str, duration:float):
     wait(duration)
     dinput.keyUp(action)
 
-def walk(direction:str, duration:float):
+def walk(direction:WALK_DIRECTIONS.VALUES, duration:float):
     direction = direction.lower().strip()
 
     forwardDirections = ["f", "fw", "forward", "forwards"]

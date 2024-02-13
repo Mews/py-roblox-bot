@@ -1,6 +1,9 @@
 import typing
 
-KEYBOARD_KEYS = typing.Literal['\t', '\n', '\r', ' ', '!', '"', '#', '$', '%', '&', "'", '(',
+class KEYBOARD_KEYS:
+    """Valid strings to pass to keyboard_action and hold_keyboard_action
+    """
+    VALUES = typing.Literal['\t', '\n', '\r', ' ', '!', '"', '#', '$', '%', '&', "'", '(',
 ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7',
 '8', '9', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`',
 'a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
@@ -23,4 +26,7 @@ KEYBOARD_KEYS = typing.Literal['\t', '\n', '\r', ' ', '!', '"', '#', '$', '%', '
 'up', 'volumedown', 'volumemute', 'volumeup', 'win', 'winleft', 'winright', 'yen',
 'command', 'option', 'optionleft', 'optionright']
 
-WALK_DIRECTIONS = typing.Literal["f", "fw", "forward", "forwards", "l", "left", "r", "right", "b", "back", "backward", "backwards"]
+class WALK_DIRECTIONS:
+    """Valid strings to pass to walk
+    """
+    VALUES = typing.Literal["f", "fw", "forward", "forwards", "l", "left", "r", "right", "b", "back", "backward", "backwards"]
