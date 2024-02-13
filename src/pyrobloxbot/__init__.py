@@ -36,7 +36,7 @@ def require_focus(fn):
         return fn
 
 @require_focus
-def keyboard_action(action:float):
+def keyboard_action(action:str):
     dinput.press(action)
 
 @require_focus
