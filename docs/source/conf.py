@@ -1,5 +1,5 @@
-import sys
-sys.path.insert(0, "C:\\Users\\Public\\codg\\pyrobloxbot\\src")
+#import sys
+#sys.path.insert(0, "C:\\Users\\Public\\codg\\pyrobloxbot\\src")
 from pyrobloxbot import literals
 
 autodoc_type_aliases = {
