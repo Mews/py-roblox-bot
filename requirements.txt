@@ -1,0 +1,4 @@
+PyDirectInput
+PyGetWindow
+pyperclip
+pywin32
