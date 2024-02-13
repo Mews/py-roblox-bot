@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "pyrobloxbot\\src")
+sys.path.insert(0, "src\\pyrobloxbot")
 from pyrobloxbot import literals
 
 autodoc_type_aliases = {
