@@ -1,10 +1,8 @@
-import sys
-sys.path.insert(0, "src\\pyrobloxbot")
-from pyrobloxbot import literals
+from src.pyrobloxbot.literals import KEYBOARD_KEYS, WALK_DIRECTIONS
 
 autodoc_type_aliases = {
-  'KEYBOARD_KEYS': literals.KEYBOARD_KEYS,
-  'WALK_DIRECTIONS': literals.WALK_DIRECTIONS
+  'KEYBOARD_KEYS': KEYBOARD_KEYS,
+  'WALK_DIRECTIONS': WALK_DIRECTIONS
 }
 # Configuration file for the Sphinx documentation builder.
 #
