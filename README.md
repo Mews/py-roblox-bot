@@ -25,5 +25,5 @@ bot.reset_player()
 ```
 ## Documentation
 
-[Read the full documentation](https://linktodocumentation)
+[Read the full documentation](https://pyrobloxbot.readthedocs.io/en/latest/pyrobloxbot.html)
 
