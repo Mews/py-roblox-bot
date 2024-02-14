@@ -24,7 +24,7 @@ autodoc_mock_imports = ["pydirectinput", "win32gui"]
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["sphinx.ext.autodoc", "sphinx_rtd_theme"]
+extensions = ["sphinx.ext.autodoc", "sphinx_rtd_theme", "sphinx.ext.autosummary"]
 pygments_style = "sphinx"
 templates_path = ['_templates']
 exclude_patterns = []
