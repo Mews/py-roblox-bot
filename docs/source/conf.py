@@ -2,12 +2,12 @@
 import sys, pathlib
 sys.path.append((pathlib.Path(__file__).parent.parent.parent / "src").resolve().as_posix())
 
-from pyrobloxbot import literals
+#from pyrobloxbot import literals
 
-autodoc_type_aliases = {
-  'KEYBOARD_KEYS': literals.KEYBOARD_KEYS,
-  'WALK_DIRECTIONS': literals.WALK_DIRECTIONS
-}
+#autodoc_type_aliases = {
+  #'KEYBOARD_KEYS': literals.KEYBOARD_KEYS,
+  #'WALK_DIRECTIONS': literals.WALK_DIRECTIONS
+#}
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
