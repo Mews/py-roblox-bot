@@ -47,26 +47,29 @@ def require_focus(fn):
     return wrapper
 
 @require_focus
-def keyboard_action(action:KEYBOARD_KEYS.VALUES):
-    """Presses a keyboard key
+def keyboard_action(*actions:KEYBOARD_KEYS.VALUES):
+    """Presses one or more keyboard keys
 
-    :param action: The key to be pressed
-    :type action: KEYBOARD_KEYS
+    :param actions: The keys to be pressed
+    :type actions: KEYBOARD_KEYS
     """
-    dinput.press(action)
+    for action in actions:
+        dinput.press(action)
 
 @require_focus
-def hold_keyboard_action(action:KEYBOARD_KEYS.VALUES, duration:float):
-    """Holds a keyboard key for a given time
+def hold_keyboard_action(*actions:KEYBOARD_KEYS.VALUES, duration:float):
+    """Holds one or more keyboard keys for a given time. If more than one key is provided, all keys will be held and released simultaneously
 
-    :param action: The key to be held
-    :type action: KEYBOARD_KEYS
+    :param actions: The keys to be held
+    :type actions: KEYBOARD_KEYS
     :param duration: How long to hold for, in seconds
     :type duration: float
     """
-    dinput.keyDown(action)
+    for action in actions:
+        dinput.keyDown(action)
     wait(duration)
-    dinput.keyUp(action)
+    for action in actions:
+        dinput.keyUp(action)
 
 def walk(direction:WALK_DIRECTIONS.VALUES, duration:float):
     """Walks in a direction for a given time
