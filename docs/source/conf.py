@@ -1,6 +1,8 @@
 #Tell sphinx and rtd where to find source code
 import sys, pathlib
 sys.path.append((pathlib.Path(__file__).parent.parent.parent / "src").resolve().as_posix())
+#for local building
+#sys.path.insert(0, "C:\\Users\\Public\\codg\\pyrobloxbot\\src")
 
 #from pyrobloxbot import literals
 
