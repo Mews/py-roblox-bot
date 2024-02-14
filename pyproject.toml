@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyrobloxbot"
-version = "1.0.4"
+version = "1.0.5"
 authors = [
   { name="Mews", email="tiraraspas@gmail.com" },
 ]
-description = "A python library to control the roblox character through keyboard inputs"
+description = "A python library to control the roblox character and interact with game ui through keyboard inputs"
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
