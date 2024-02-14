@@ -15,31 +15,34 @@ def require_focus(fn):
     :raises NoRobloxWindowException: Raised when can't find a roblox window to focus
     """
     #Fast check to see if roblox window is already focused
-    if GetWindowText(GetForegroundWindow()) == "Roblox":
-        return fn
+    def wrapper(*args, **kwargs):
+        if GetWindowText(GetForegroundWindow()) == "Roblox":
+            return fn(*args, **kwargs)
 
-    else:
-        rblxWindow = None
-
-        #Find roblox window
-        for window in getWindowsWithTitle("Roblox"):
-            if window.title == "Roblox":
-                rblxWindow = window
-        
-        #Raise error if roblox isn't open
-        if rblxWindow == None:
-            raise NoRobloxWindowException("You must have roblox opened")
-        
-        #Set focus to roblox window
         else:
-            rblxWindow.maximize()
-            rblxWindow.activate()
+            rblxWindow = None
 
-            #Wait for the roblox window to be active
-            while getActiveWindow() == None:
-                pass
-                
-        return fn
+            #Find roblox window
+            for window in getWindowsWithTitle("Roblox"):
+                if window.title == "Roblox":
+                    rblxWindow = window
+            
+            #Raise error if roblox isn't open
+            if rblxWindow == None:
+                raise NoRobloxWindowException("You must have roblox opened")
+            
+            #Set focus to roblox window
+            else:
+                rblxWindow.maximize()
+                rblxWindow.activate()
+
+                #Wait for the roblox window to be active
+                while getActiveWindow() == None:
+                    pass
+
+            return fn(*args, **kwargs)        
+
+    return wrapper
 
 @require_focus
 def keyboard_action(action:KEYBOARD_KEYS.VALUES):
