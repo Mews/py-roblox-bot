@@ -1,5 +1,7 @@
+#Tell sphinx and rtd where to find source code
 import sys, pathlib
 sys.path.append((pathlib.Path(__file__).parent.parent.parent / "src").resolve().as_posix())
+
 from pyrobloxbot import literals
 
 autodoc_type_aliases = {
@@ -18,7 +20,7 @@ project = 'pyrobloxbot'
 copyright = '2024, Mews'
 author = 'Mews'
 release = '1.0.5'
-
+autodoc_mock_imports = ["pydirectinput", "pywin32"]
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
