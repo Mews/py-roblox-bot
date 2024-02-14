@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyrobloxbot"
-version = "1.0.5"
+version = "1.0.6"
 authors = [
   { name="Mews", email="tiraraspas@gmail.com" },
 ]
