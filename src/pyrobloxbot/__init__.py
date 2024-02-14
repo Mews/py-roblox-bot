@@ -1,6 +1,7 @@
 from __future__ import annotations
-import pydirectinput as dinput
+from functools import wraps
 from time import sleep as wait
+import pydirectinput as dinput
 from pygetwindow import getWindowsWithTitle, getActiveWindow
 from win32gui import GetWindowText, GetForegroundWindow
 import pyperclip as pyclip
@@ -15,6 +16,7 @@ def require_focus(fn):
     :raises NoRobloxWindowException: Raised when can't find a roblox window to focus
     """
     #Fast check to see if roblox window is already focused
+    @wraps(fn)
     def wrapper(*args, **kwargs):
         if GetWindowText(GetForegroundWindow()) == "Roblox":
             return fn(*args, **kwargs)
