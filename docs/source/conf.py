@@ -8,6 +8,12 @@ sys.path.append((pathlib.Path(__file__).parent.parent.parent / "src").resolve().
   #'KEYBOARD_KEYS': literals.KEYBOARD_KEYS,
   #'WALK_DIRECTIONS': literals.WALK_DIRECTIONS
 #}
+
+autodoc_type_aliases = {
+  'KEYBOARD_KEYS': "KEYBOARD_KEYS",
+  'WALK_DIRECTIONS': "WALK_DIRECTIONS"
+}
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
