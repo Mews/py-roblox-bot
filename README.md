@@ -34,8 +34,7 @@ bot.walk_forward(5)
 #Reset player character
 bot.reset_player()
 ```
-## Documentation
 
-[Read the full documentation](https://pyrobloxbot.readthedocs.io/en/latest/pyrobloxbot.html)
+## [Documentation](https://pyrobloxbot.readthedocs.io/en/latest/pyrobloxbot.html)
 
-# [Changelog](https://github.com/Mews/py-roblox-bot/blob/main/CHANGELOG.md)
+## [Changelog](https://github.com/Mews/py-roblox-bot/blob/main/CHANGELOG.md)
