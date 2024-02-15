@@ -4,6 +4,12 @@
 
     The failsafe hotkey can be changed through `set_failsafe_hotkey`
 
+    Example:
+    ```python
+    #Sets the failsafe hotkey to control + shift + y
+    set_failsafe_hotkey("ctrl", "shift", "y")
+    ```
+
 -   The key used to toggle the ui navigation mode can now be changed by changing the `UI_NAV_KEY` variable
 
     Example:
