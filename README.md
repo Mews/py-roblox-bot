@@ -3,7 +3,12 @@
 
 A python library to control the roblox character and interact with game ui through keyboard inputs
 
-This library uses ```pydirectinput``` to control the keyboard and ensures that the roblox window is in focus to avoid unintentional consequences of sending keyboard inputs
+This library uses ```pydirectinput``` to control the keyboard
+
+It has a decorator to ensure that the roblox window is in focus before sending keyboard inputs
+
+There is also a global failsafe that can be triggered using _**control + m**_ to avoid your bot getting out of control
+-   The failsafe hotkey can be changed using `set_failsafe_hotkey`
 
 ## Installation
 
