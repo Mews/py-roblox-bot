@@ -38,3 +38,4 @@ bot.reset_player()
 
 [Read the full documentation](https://pyrobloxbot.readthedocs.io/en/latest/pyrobloxbot.html)
 
+# [Changelog](https://github.com/Mews/py-roblox-bot/blob/main/CHANGELOG.md)
