@@ -10,6 +10,12 @@ It has a decorator to ensure that the roblox window is in focus before sending k
 There is also a global failsafe that can be triggered using _**control + m**_ to avoid your bot getting out of control
 -   The failsafe hotkey can be changed using `set_failsafe_hotkey`
 
+    Example:
+    ```python
+    #Sets the failsafe hotkey to control + shift + y
+    set_failsafe_hotkey("ctrl", "shift", "y")
+    ```
+
 ## Installation
 
 Install pyrobloxbot using ```pip install pyrobloxbot```
