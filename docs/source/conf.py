@@ -13,7 +13,8 @@ sys.path.append((pathlib.Path(__file__).parent.parent.parent / "src").resolve().
 
 autodoc_type_aliases = {
   'KEYBOARD_KEYS': "KEYBOARD_KEYS",
-  'WALK_DIRECTIONS': "WALK_DIRECTIONS"
+  'WALK_DIRECTIONS': "WALK_DIRECTIONS",
+  "UI_NAVIGATE_DIRECTIONS": "UI_NAVIGATE_DIRECTIONS"
 }
 
 # Configuration file for the Sphinx documentation builder.
