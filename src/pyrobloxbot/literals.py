@@ -30,3 +30,8 @@ class WALK_DIRECTIONS:
     """Valid strings to pass to walk
     """
     VALUES = typing.Literal["f", "fw", "forward", "forwards", "l", "left", "r", "right", "b", "back", "backward", "backwards"]
+
+class UI_NAVIGATE_DIRECTIONS:
+    """Valid strings to pass to ui_navigate
+    """
+    VALUES = typing.Literal["up", "u", "left", "l", "right", "r", "down", "d"]

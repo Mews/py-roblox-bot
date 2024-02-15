@@ -12,3 +12,7 @@ class InvalidWalkDirectionException(Exception):
     """Raised by walk when given a direction that isn't in literals.WALK_DIRECTIONS.VALUES
     """
     pass
+
+class InvalidUiDirectionException(Exception):
+    """Raised by ui_navigate when given a direction that isn't in literals.UI_NAVIGATE_DIRECTIONS.VALUES
+    """

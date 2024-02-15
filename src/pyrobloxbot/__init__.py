@@ -1,17 +1,48 @@
 from __future__ import annotations
+import _thread
 from functools import wraps
 from time import sleep as wait
 import pydirectinput as dinput
 from pygetwindow import getWindowsWithTitle, getActiveWindow
 from win32gui import GetWindowText, GetForegroundWindow
 import pyperclip as pyclip
+import keyboard as kb
 from .exceptions import *
-from .literals import KEYBOARD_KEYS, WALK_DIRECTIONS
+from .literals import *
 
 UI_NAV_ENABLED = False
+UI_NAV_KEY = "\\"
+
+FAILSAFE_HOTKEY = "ctrl+m"
+
+kb.add_hotkey(FAILSAFE_HOTKEY, _thread.interrupt_main)
+
+def set_failsafe_hotkey(*keys:KEYBOARD_KEYS.VALUES):
+    """Changes hotkey required to trigger the failsafe
+    
+    The default hotkey is control + m
+
+    :param keys: The key combination for triggering the failsafe
+    :type keys: KEYBOARD_KEYS
+    """
+    global FAILSAFE_HOTKEY
+
+    kb.clear_hotkey(FAILSAFE_HOTKEY)
+
+    FAILSAFE_HOTKEY = ""
+    for key in keys:
+        key = kb._canonical_names.normalize_name(key)
+        FAILSAFE_HOTKEY += key
+        FAILSAFE_HOTKEY += "+"
+    
+    FAILSAFE_HOTKEY = FAILSAFE_HOTKEY[:-1]
+
+    kb.add_hotkey(FAILSAFE_HOTKEY, _thread.interrupt_main)
 
 def require_focus(fn):
-    """A decorator that ensures the roblox window is in focus before running the decorated function. This is used by all pyrobloxbot functions
+    """A decorator that ensures the roblox window is in focus before running the decorated function
+     
+    This is used by all pyrobloxbot functions
 
     :raises NoRobloxWindowException: Raised when can't find a roblox window to focus
     """
@@ -58,7 +89,9 @@ def keyboard_action(*actions:KEYBOARD_KEYS.VALUES):
 
 @require_focus
 def hold_keyboard_action(*actions:KEYBOARD_KEYS.VALUES, duration:float):
-    """Holds one or more keyboard keys for a given time. If more than one key is provided, all keys will be held and released simultaneously
+    """Holds one or more keyboard keys for a given time
+    
+    If more than one key is provided, all keys will be held and released simultaneously
 
     :param actions: The keys to be held
     :type actions: KEYBOARD_KEYS
@@ -71,41 +104,67 @@ def hold_keyboard_action(*actions:KEYBOARD_KEYS.VALUES, duration:float):
     for action in actions:
         dinput.keyUp(action)
 
-def walk(direction:WALK_DIRECTIONS.VALUES, duration:float):
-    """Walks in a direction for a given time
+@require_focus
+def walk(*directions:WALK_DIRECTIONS.VALUES, duration:float):
+    """Walks in one or more directions for a given time
+    
+    If more than one direction is given it will walk diagonally
 
-    :param direction: The direction to walk in
-    :type direction: WALK_DIRECTIONS
+    :param directions: The directions to walk in
+    :type directions: WALK_DIRECTIONS
     :param duration: How long to walk for, in seconds
     :type duration: float
-    :raises InvalidWalkDirectionException: Raised when given direction isn't in literals.WALK_DIRECTIONS.VALUES
+    :raises InvalidWalkDirectionException: Raised when given directions aren't one of literals.WALK_DIRECTIONS.VALUES
     """
-    direction = direction.lower().strip()
-
+    
     forwardDirections = ["f", "fw", "forward", "forwards"]
     leftDirections = ["l", "left"]
     rightDirections = ["r", "right"]
     backDirections = ["b", "back", "backward", "backwards"]
 
-    if direction in forwardDirections:
-        walk_forward(duration)
+    ## Check if all directions are valid
+    for direction in directions:
+        direction = direction.lower().strip()
+
+        if direction in forwardDirections:
+            pass  
+        elif direction in leftDirections:
+            pass  
+        elif direction in rightDirections:
+            pass
+        elif direction in backDirections:
+            pass
+        else:
+            raise InvalidWalkDirectionException("Direction must be one of "+str(WALK_DIRECTIONS.VALUES))
+
+    #Hold down keys
+    for direction in directions:
+        direction = direction.lower().strip()
+
+        if direction in forwardDirections:
+            dinput.keyDown("w")
+        elif direction in leftDirections:
+            dinput.keyDown("a")
+        elif direction in rightDirections:
+            dinput.keyDown("d")
+        elif direction in backDirections:
+            dinput.keyDown("s")
     
-    elif direction in leftDirections:
-        walk_left(duration)
-    
-    elif direction in rightDirections:
-        walk_right(duration)
-    
-    elif direction in backDirections:
-        walk_back(duration)
-    
-    else:
-        excTxt = "Direction must be one of these: "
-        for d in forwardDirections: excTxt += d + " "
-        for d in leftDirections: excTxt += d + " "
-        for d in rightDirections: excTxt += d + " "
-        for d in backDirections: excTxt += d + " "
-        raise InvalidWalkDirectionException(excTxt)
+    wait(duration)
+
+    #Release keys
+    for direction in directions:
+        direction = direction.lower().strip()
+
+        if direction in forwardDirections:
+            dinput.keyUp("w")
+        elif direction in leftDirections:
+            dinput.keyUp("a")
+        elif direction in rightDirections:
+            dinput.keyUp("d")
+        elif direction in backDirections:
+            dinput.keyUp("s")
+
 
 @require_focus
 def walk_forward(duration:float):
@@ -230,12 +289,46 @@ def chat(message:str):
 
 @require_focus
 def toggle_ui_navigation():
-    """Toggles ui navigation mode. This is called by all ui navigation functions if ui navigation mode is disabled
+    """Toggles ui navigation mode. 
+    
+    This is called by all ui navigation functions if ui navigation mode is disabled. 
+    
+    You can change the key used to toggle this mode by changing the module's UI_NAV_KEY variable
     """
     global UI_NAV_ENABLED
     UI_NAV_ENABLED = not UI_NAV_ENABLED
-    dinput.press('`')
+    dinput.press(UI_NAV_KEY)
 
+
+def ui_navigate(direction:UI_NAVIGATE_DIRECTIONS.VALUES):
+    """Navigates through roblox ui in specified direction
+
+    :param direction: The direction to navigate in
+    :type direction: UI_NAVIGATE_DIRECTIONS
+    :raises InvalidUiDirectionException: Raised if direction isn't one of 
+    """
+    direction = direction.lower().strip()
+
+    up_directions = ["up", "u"]
+    left_directions = ["left", "l"]
+    right_directions = ["right", "r"]
+    down_directions = ["down", "d"]
+
+    if direction in up_directions:
+        ui_navigate_up()
+    
+    elif direction in left_directions:
+        ui_navigate_left()
+
+    elif direction in right_directions:
+        ui_navigate_right()
+    
+    elif direction in down_directions:
+        ui_navigate_left()
+
+    else:
+        raise InvalidUiDirectionException("Direction must be one of "+str(UI_NAVIGATE_DIRECTIONS.VALUES))
+    
 @require_focus
 def ui_navigate_up():
     """Navigate up in ui elements
