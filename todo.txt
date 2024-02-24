@@ -1,0 +1,2 @@
+maybe try multiprocessing for the failsafe but idk
+add a function to see if a certain image is on screen  #add python-opencv to requirements to use confidence
