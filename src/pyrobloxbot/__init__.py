@@ -1,17 +1,21 @@
 from __future__ import annotations
 import _thread
 from functools import wraps
+import os
 from time import sleep as wait
 import pydirectinput as dinput
 from pygetwindow import getWindowsWithTitle, getActiveWindow
 from win32gui import GetWindowText, GetForegroundWindow
 import pyperclip as pyclip
 import keyboard as kb
+from pynput.keyboard import Key, Controller
+import pyautogui as pg
 from .exceptions import *
 from .literals import *
 
 UI_NAV_ENABLED = False
 UI_NAV_KEY = "\\"
+"""The key that is used by toggle_ui_navigation to turn on the ui navigation mode"""
 
 FAILSAFE_HOTKEY = "ctrl+m"
 
@@ -42,7 +46,7 @@ def set_failsafe_hotkey(*keys:KEYBOARD_KEYS.VALUES):
 def require_focus(fn):
     """A decorator that ensures the roblox window is in focus before running the decorated function
      
-    This is used by all pyrobloxbot functions
+    This is already used by all pyrobloxbot functions that require it so you do not have to add it
 
     :raises NoRobloxWindowException: Raised when can't find a roblox window to focus
     """
@@ -104,6 +108,32 @@ def hold_keyboard_action(*actions:KEYBOARD_KEYS.VALUES, duration:float):
     for action in actions:
         dinput.keyUp(action)
 
+press_key = keyboard_action
+"""An alias for the keyboard_action function"""
+
+hold_key = hold_keyboard_action
+"""An alias for the hold_keyboard_action function"""
+
+@require_focus
+def key_down(key:KEYBOARD_KEYS.VALUES):
+    """Holds down a key in a non blocking way
+
+    The key will be held until key_up is called for the same key
+
+    :param key: The key to be held down
+    :type key: KEYBOARD_KEYS
+    """
+    dinput.keyDown(key)
+
+@require_focus
+def key_up(key:KEYBOARD_KEYS.VALUES):
+    """Releases a key
+
+    :param key: The key to be released
+    :type key: KEYBOARD_KEYS
+    """
+    dinput.keyUp(key)
+
 @require_focus
 def walk(*directions:WALK_DIRECTIONS.VALUES, duration:float):
     """Walks in one or more directions for a given time
@@ -164,7 +194,6 @@ def walk(*directions:WALK_DIRECTIONS.VALUES, duration:float):
             dinput.keyUp("d")
         elif direction in backDirections:
             dinput.keyUp("s")
-
 
 @require_focus
 def walk_forward(duration:float):
@@ -250,7 +279,9 @@ def leave_game(interval:float=0.5):
     :param interval: How long between each keyboard input, in seconds, defaults to 0.5
     :type interval: float
     """
+    global UI_NAV_ENABLED
     dinput.press(("esc", "l", "enter"), interval=interval)
+    UI_NAV_ENABLED = False
 
 @require_focus
 def toggle_shift_lock():
@@ -294,6 +325,8 @@ def toggle_ui_navigation():
     This is called by all ui navigation functions if ui navigation mode is disabled. 
     
     You can change the key used to toggle this mode by changing the module's UI_NAV_KEY variable
+
+    The "UI Navigation Toggle" setting must be enabled on Roblox
     """
     global UI_NAV_ENABLED
     UI_NAV_ENABLED = not UI_NAV_ENABLED
@@ -375,6 +408,46 @@ def ui_click():
     dinput.press("enter")
 
 @require_focus
+def ui_scroll_up(ticks:int, delay:float=0.1):
+    """Scrolls up through selected ui element
+
+    The ui element itself has to be scrollable
+
+    :param ticks: How many times to scroll
+    :type ticks: int
+    :param delay: The delay between each input, defaults to 0.1\n
+                  A lower delay will scroll faster but at some point can lose precision
+    :type delay: float, optional
+    """
+    if not UI_NAV_ENABLED:
+        toggle_ui_navigation()
+    
+    kb = Controller()
+    for i in range(ticks):
+        kb.press(Key.page_up)
+        kb.release(Key.page_up)
+        wait(delay)
+
+@require_focus
+def ui_scroll_down(ticks:int, delay:float=0.1):
+    """Scrolls down in selected ui element
+
+    :param ticks: How many times to scroll
+    :type ticks: int
+    :param delay: The delay between each input, defaults to 0.1\n
+                  A lower delay will scroll faster but at some point can lose precision
+    :type delay: float, optional
+    """
+    if not UI_NAV_ENABLED:
+        toggle_ui_navigation()
+
+    kb = Controller()
+    for i in range(ticks):
+        kb.press(Key.page_down)
+        kb.release(Key.page_down)
+        wait(delay)
+
+@require_focus
 def equip_slot(slot:int):
     """Equip a given item slot
 
@@ -386,3 +459,35 @@ def equip_slot(slot:int):
         raise InvalidSlotNumberException("Slots should be between 0 and 9")
 
     dinput.press(str(slot))
+
+def launch_game(game_id:int):
+    """Launches a roblox game
+
+    There can be a few seconds of delay between calling this function and the game opening
+
+    :param game_id: The id of the roblox game to launch
+    :type game_id: int
+    """
+    game_id = str(game_id)
+    command = "start roblox://placeId="+str(game_id)
+    os.system(command=command)
+
+@require_focus
+def image_is_visible(image_path:str, confidence:float=0.9) -> bool:
+    """Checks whether a given image is visible in the roblox window
+
+    :param image_path: The path to the image file to check
+    :type image_path: str
+    :param confidence: How confident the function has to be to return True, must be between 0 and 0.999, defaults to 0.9\n
+                       If this value is too low it may give false positives
+
+    :type confidence: float, optional
+    :return: Whether or not the image is visible
+    :rtype: bool
+    """
+
+    try:
+        pg.locateOnScreen(image_path, confidence=confidence)
+        return True
+    except pg.ImageNotFoundException:
+        return False
