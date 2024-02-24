@@ -25,6 +25,7 @@ dependencies = [
   "pynput",
   "pyautogui",
   "opencv-python",
+  "pillow",
 ]
 keywords = ["roblox", "bot", "keyboard"]
 
