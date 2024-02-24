@@ -29,7 +29,7 @@ project = 'pyrobloxbot'
 copyright = '2024, Mews'
 author = 'Mews'
 release = '1.0.5'
-autodoc_mock_imports = ["pydirectinput", "win32gui", "pygetwindow", "keyboard"]
+autodoc_mock_imports = ["pydirectinput", "win32gui", "pygetwindow", "keyboard", "pynput", "pyautogui"]
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
