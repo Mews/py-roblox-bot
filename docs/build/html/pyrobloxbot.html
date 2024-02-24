@@ -69,13 +69,20 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-pyrobloxbot">Module contents</a><ul>
+<li><a class="reference internal" href="#pyrobloxbot.UI_NAV_KEY"><code class="docutils literal notranslate"><span class="pre">UI_NAV_KEY</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.chat"><code class="docutils literal notranslate"><span class="pre">chat()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.equip_slot"><code class="docutils literal notranslate"><span class="pre">equip_slot()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.hold_key"><code class="docutils literal notranslate"><span class="pre">hold_key()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.hold_keyboard_action"><code class="docutils literal notranslate"><span class="pre">hold_keyboard_action()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.image_is_visible"><code class="docutils literal notranslate"><span class="pre">image_is_visible()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.jump"><code class="docutils literal notranslate"><span class="pre">jump()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.jump_continuous"><code class="docutils literal notranslate"><span class="pre">jump_continuous()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.key_down"><code class="docutils literal notranslate"><span class="pre">key_down()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.key_up"><code class="docutils literal notranslate"><span class="pre">key_up()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.keyboard_action"><code class="docutils literal notranslate"><span class="pre">keyboard_action()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.launch_game"><code class="docutils literal notranslate"><span class="pre">launch_game()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.leave_game"><code class="docutils literal notranslate"><span class="pre">leave_game()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.press_key"><code class="docutils literal notranslate"><span class="pre">press_key()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.require_focus"><code class="docutils literal notranslate"><span class="pre">require_focus()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.reset_player"><code class="docutils literal notranslate"><span class="pre">reset_player()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.set_failsafe_hotkey"><code class="docutils literal notranslate"><span class="pre">set_failsafe_hotkey()</span></code></a></li>
@@ -87,6 +94,8 @@
 <li><a class="reference internal" href="#pyrobloxbot.ui_navigate_left"><code class="docutils literal notranslate"><span class="pre">ui_navigate_left()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.ui_navigate_right"><code class="docutils literal notranslate"><span class="pre">ui_navigate_right()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.ui_navigate_up"><code class="docutils literal notranslate"><span class="pre">ui_navigate_up()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.ui_scroll_down"><code class="docutils literal notranslate"><span class="pre">ui_scroll_down()</span></code></a></li>
+<li><a class="reference internal" href="#pyrobloxbot.ui_scroll_up"><code class="docutils literal notranslate"><span class="pre">ui_scroll_up()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.walk"><code class="docutils literal notranslate"><span class="pre">walk()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.walk_back"><code class="docutils literal notranslate"><span class="pre">walk_back()</span></code></a></li>
 <li><a class="reference internal" href="#pyrobloxbot.walk_forward"><code class="docutils literal notranslate"><span class="pre">walk_forward()</span></code></a></li>
@@ -202,6 +211,12 @@
 </section>
 <section id="module-pyrobloxbot">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyrobloxbot" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyrobloxbot.UI_NAV_KEY">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">UI_NAV_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\\'</span></em><a class="headerlink" href="#pyrobloxbot.UI_NAV_KEY" title="Link to this definition"></a></dt>
+<dd><p>The key that is used by toggle_ui_navigation to turn on the ui navigation mode</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="pyrobloxbot.chat">
 <span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">chat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.chat" title="Link to this definition"></a></dt>
@@ -228,6 +243,12 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.hold_key">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">hold_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.hold_key" title="Link to this definition"></a></dt>
+<dd><p>An alias for the hold_keyboard_action function</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyrobloxbot.hold_keyboard_action">
 <span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">hold_keyboard_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.hold_keyboard_action" title="Link to this definition"></a></dt>
 <dd><p>Holds one or more keyboard keys for a given time</p>
@@ -238,6 +259,28 @@
 <li><p><strong>actions</strong> (<a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS" title="pyrobloxbot.literals.KEYBOARD_KEYS"><em>KEYBOARD_KEYS</em></a>) – The keys to be held</p></li>
 <li><p><strong>duration</strong> (<em>float</em>) – How long to hold for, in seconds</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.image_is_visible">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">image_is_visible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyrobloxbot.image_is_visible" title="Link to this definition"></a></dt>
+<dd><p>Checks whether a given image is visible in the roblox window</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_path</strong> (<em>str</em>) – The path to the image file to check</p></li>
+<li><p><strong>confidence</strong> (<em>float</em><em>, </em><em>optional</em>) – <p>How confident the function has to be to return True, must be between 0 and 0.999, defaults to 0.9</p>
+<p>If this value is too low it may give false positives</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether or not the image is visible</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -268,12 +311,47 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.key_down">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">key_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.key_down" title="Link to this definition"></a></dt>
+<dd><p>Holds down a key in a non blocking way</p>
+<p>The key will be held until key_up is called for the same key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS" title="pyrobloxbot.literals.KEYBOARD_KEYS"><em>KEYBOARD_KEYS</em></a>) – The key to be held down</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.key_up">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">key_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.key_up" title="Link to this definition"></a></dt>
+<dd><p>Releases a key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS" title="pyrobloxbot.literals.KEYBOARD_KEYS"><em>KEYBOARD_KEYS</em></a>) – The key to be released</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyrobloxbot.keyboard_action">
 <span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">keyboard_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.keyboard_action" title="Link to this definition"></a></dt>
 <dd><p>Presses one or more keyboard keys</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>actions</strong> (<a class="reference internal" href="#pyrobloxbot.literals.KEYBOARD_KEYS" title="pyrobloxbot.literals.KEYBOARD_KEYS"><em>KEYBOARD_KEYS</em></a>) – The keys to be pressed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.launch_game">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">launch_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.launch_game" title="Link to this definition"></a></dt>
+<dd><p>Launches a roblox game</p>
+<p>There can be a few seconds of delay between calling this function and the game opening</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>game_id</strong> (<em>int</em>) – The id of the roblox game to launch</p>
 </dd>
 </dl>
 </dd></dl>
@@ -290,10 +368,16 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.press_key">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">press_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KEYBOARD_KEYS.VALUES</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.press_key" title="Link to this definition"></a></dt>
+<dd><p>An alias for the keyboard_action function</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyrobloxbot.require_focus">
 <span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">require_focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.require_focus" title="Link to this definition"></a></dt>
 <dd><p>A decorator that ensures the roblox window is in focus before running the decorated function</p>
-<p>This is used by all pyrobloxbot functions</p>
+<p>This is already used by all pyrobloxbot functions that require it so you do not have to add it</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#pyrobloxbot.exceptions.NoRobloxWindowException" title="pyrobloxbot.exceptions.NoRobloxWindowException"><strong>NoRobloxWindowException</strong></a> – Raised when can’t find a roblox window to focus</p>
@@ -336,6 +420,7 @@
 <dd><p>Toggles ui navigation mode.</p>
 <p>This is called by all ui navigation functions if ui navigation mode is disabled.</p>
 <p>You can change the key used to toggle this mode by changing the module’s UI_NAV_KEY variable</p>
+<p>The</p>
 </dd></dl>
 
 <dl class="py function">
@@ -380,6 +465,39 @@
 <dt class="sig sig-object py" id="pyrobloxbot.ui_navigate_up">
 <span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_navigate_up</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_navigate_up" title="Link to this definition"></a></dt>
 <dd><p>Navigate up in ui elements</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.ui_scroll_down">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_scroll_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_scroll_down" title="Link to this definition"></a></dt>
+<dd><p>Scrolls down in selected ui element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ticks</strong> (<em>int</em>) – How many times to scroll</p></li>
+<li><p><strong>delay</strong> (<em>float</em><em>, </em><em>optional</em>) – <p>The delay between each input, defaults to 0.1</p>
+<p>A lower delay will scroll faster but at some point can lose precision</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrobloxbot.ui_scroll_up">
+<span class="sig-prename descclassname"><span class="pre">pyrobloxbot.</span></span><span class="sig-name descname"><span class="pre">ui_scroll_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrobloxbot.ui_scroll_up" title="Link to this definition"></a></dt>
+<dd><p>Scrolls up through selected ui element</p>
+<p>The ui element itself has to be scrollable</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ticks</strong> (<em>int</em>) – How many times to scroll</p></li>
+<li><p><strong>delay</strong> (<em>float</em><em>, </em><em>optional</em>) – <p>The delay between each input, defaults to 0.1</p>
+<p>A lower delay will scroll faster but at some point can lose precision</p>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
