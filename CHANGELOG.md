@@ -1,5 +1,5 @@
 # Changelog
-### 1.0.8
+### 1.0.9
 -   Added docs for the module's global variables
 
 -   Added `launch_game` function to open a roblox game from its id
@@ -37,6 +37,11 @@
     
     print("The button is on screen!")
     ```
+    
+### 1.0.8
+This version was missing some dependencies
+
+Other than that, the changes present in 1.0.9 also apply to this version, even though using it isn't recommended
 
 ### 1.0.7
 -   Added failsafe that can be triggered by key combination (default is control + m)
