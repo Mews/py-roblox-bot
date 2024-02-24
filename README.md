@@ -16,6 +16,8 @@ There is also a global failsafe that can be triggered using _**control + m**_ to
     set_failsafe_hotkey("ctrl", "shift", "y")
     ```
 
+If you have any issues while using the library, please reach out through my discord (mews75)
+
 ## Installation
 
 Install pyrobloxbot using ```pip install pyrobloxbot```
