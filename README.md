@@ -1,6 +1,10 @@
 
 # pyrobloxbot
 
+[![Documentation badge](https://readthedocs.org/projects/pyrobloxbot/badge/?version=latest&style=flat-default)](https://pyrobloxbot.readthedocs.io/en/latest/pyrobloxbot.html)
+[![PyPI Version](https://img.shields.io/pypi/v/pyrobloxbot?label=pypi%20package)](https://pypi.python.org/pypi/pyrobloxbot)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/pyrobloxbot)](https://pypi.python.org/pypi/pyrobloxbot)
+
 A python library to control the roblox character and interact with game ui through keyboard inputs
 
 This library uses ```pydirectinput``` to control the keyboard
